@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   leadMeta: { fontSize: FontSize.xs, color: Colors.textMuted, marginTop: 2, textTransform: 'uppercase', letterSpacing: 0.5 },
   badge: { paddingHorizontal: Spacing.md, paddingVertical: 4, borderRadius: BorderRadius.sm },
   badgeText: { fontSize: 10, fontWeight: '800', textTransform: 'uppercase' },
-  cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: Spacing.lg, pt: Spacing.md, borderTopWidth: 1, borderTopColor: Colors.border },
+  cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: Spacing.lg, paddingTop: Spacing.md, borderTopWidth: 1, borderTopColor: Colors.border },
   footerItem: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   footerText: { fontSize: FontSize.xs, color: Colors.textLight },
   empty: { alignItems: 'center', marginTop: 100, gap: Spacing.md },

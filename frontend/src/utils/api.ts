@@ -11,10 +11,10 @@ import { supabase } from '../lib/supabase';
 
 const getBaseUrl = () => {
   if (Platform.OS === 'web' && typeof window !== 'undefined') {
-    // On web, always prioritize the current host for local dev
     return 'http://localhost:3000';
   }
-  return (process.env.EXPO_PUBLIC_API_URL || process.env.EXPO_PUBLIC_BACKEND_URL || 'http://localhost:3000').replace(/\/api\/v1\/?$/, '').replace(/\/$/, '');
+  // Point directly to Next.js admin panel backend
+  return (process.env.EXPO_PUBLIC_API_URL || 'http://localhost:3000').replace(/\/api\/v1\/?$/, '').replace(/\/$/, '');
 };
 
 const BASE_URL = getBaseUrl();

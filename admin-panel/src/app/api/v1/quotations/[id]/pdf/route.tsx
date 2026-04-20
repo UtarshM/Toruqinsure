@@ -6,10 +6,10 @@ import React from 'react'
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params
+    const { id } = await params
 
     // 1. Fetch data
     const quotation = await prisma.quotation.findUnique({

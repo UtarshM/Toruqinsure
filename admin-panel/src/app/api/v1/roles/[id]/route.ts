@@ -3,11 +3,12 @@ import prisma from '@/lib/prisma'
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const role = await prisma.role.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         permissions: true
       }
@@ -24,14 +25,15 @@ export async function GET(
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await req.json()
     const { permissionIds } = body // Array of permission IDs
 
     const role = await prisma.role.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         permissions: {
           set: permissionIds.map((id: string) => ({ id }))
